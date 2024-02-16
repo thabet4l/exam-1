@@ -1,0 +1,41 @@
+import turtle
+
+# Function to draw a square
+def draw_square(x, y, side):
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.fillcolor("red")
+    turtle.begin_fill()
+    for _ in range(4):
+        turtle.forward(side)
+        turtle.right(90)
+    turtle.end_fill()
+
+# Function to draw a triangle
+def draw_triangle(x, y, side):
+    turtle.penup()
+    turtle.goto(x + side / 2, y)
+    turtle.pendown()
+    turtle.fillcolor("green")
+    turtle.begin_fill()
+    for _ in range(3):
+        turtle.forward(side)
+        turtle.right(120)
+    turtle.end_fill()
+
+# Reading user input
+x_coordinate = int(input("Enter bottom left x coordinate: "))
+y_coordinate = int(input("Enter bottom left y coordinate: "))
+side_length = int(input("Enter side: "))
+
+# Setting up Turtle
+turtle.setup(800, 600)
+turtle.speed(0)
+
+# Drawing shapes
+draw_square(x_coordinate, y_coordinate, side_length)
+draw_triangle(x_coordinate, y_coordinate + side_length / 2, side_length)
+
+# Keeping the window open
+turtle.done()
